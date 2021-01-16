@@ -1,0 +1,40 @@
+syntax = "proto3";
+package com.example.demo.service.model;
+option java_multiple_files = true;
+
+service clientService{
+  rpc addClient(addClientRequest) returns(addClientResponse);
+  rpc deleteClient(deleteClientRequest) returns(deleteClientResponse);
+  rpc getAllClients(getClientsRequest) returns(getClientsResponse);
+}
+
+message ProtoClient{
+  string name=1;
+  bool vip = 2;
+  bool present = 3;
+}
+
+message addClientRequest{
+  ProtoClient client=1;
+}
+message addClientResponse{
+
+}
+message deleteClientRequest{
+  string id = 1;
+}
+message deleteClientResponse{
+
+}
+message getClientsRequest{
+
+}
+message getClientResponse{
+  string id = 1;
+  string name = 2;
+  bool vip = 3;
+  bool present = 4;
+}
+message getClientsResponse{
+  repeated getClientResponse clients = 1;
+}
